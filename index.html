@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <meta property="og:image" content="./assets/icon.png"> these meta tags are used once I have an icon for the app -->
-    <!-- <meta property="og:title" content="Input your Favorite Movies!"> -->
+    <meta property="og:image" content="./assets/weather.png"> 
+    <meta property="og:title" content="Instant Weather Reports!">
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -15,51 +15,40 @@
 
 <body class="container">
     <div class="row">
-<aside class="col-sm-4 bg-light pb-4">
-    <form class="form-inline">
-        <h5>Search for a City:</h5><br>
-        <div class="form-group mb-2">
-          <input type="text" class="form-control" id="inputPassword2">
-        </div>
-        <button type="submit" id="find-city" class="btn btn-primary mb-2"><i class="fa fa-search"></i></button>
-      </form>
-    <ul class="list-group pt-2" id="search-history">
-        <li class="list-group-item" id="atlanta">Atlanta</li>
-      </ul>
-</aside>
+        <aside class="col-sm-4 bg-light pb-4">
+            <form class="form-inline">
+                <h5>Search for a City:</h5><br>
+                <div class="form-group mb-2">
+                    <input type="text" class="form-control" id="city">
+                </div>
+                <button type="submit" id="find-city" class="btn btn-primary mb-2"><i class="fa fa-search"></i></button>
+            </form>
+            <ul class="list-group pt-2" id="search-history"></ul>
+        </aside>
 
-<main class="col-sm-8">
-    <div class="img-thumbnail">
-    <ul style="list-style-type:none; line-height: 45px;">
-    <h2 id="city" class="pt-3"></h2><img id="weather-icon" />
-    <li>Temperature: <span id="current-temp"></span> &deg;F</li>
-    <li>Humidity: <span id="current-humidity"></span>%</li>
-    <li>Wind Speed: <span id="current-wind"></span> MPH</li>
-    <li>UV Index: <span id="current-uv"></span></li>
-    </ul>
+        <main class="col-sm-8">
+            <div class="img-thumbnail">
+                <ul style="list-style-type:none; line-height: 45px;">
+                    <h2 id="city1" class="pt-3"></h2>
+                    <img id="weather-icon" />
+                    <li>Temperature: <span id="current-temp"></span> &deg;F</li>
+                    <li>Humidity: <span id="current-humidity"></span>%</li>
+                    <li>Wind Speed: <span id="current-wind"></span> MPH</li>
+                    <li>UV Index: <span id="current-uv"></span></li>
+                </ul>
+            </div>
+            <h4 class="pt-3">5-Day Forecast</h4>
+            <div class="row bg-white" id="5-day"></div>
+        </main>
     </div>
-    <h4 class="pt-3">5-Day Forecast</h4>
-    <div class="row">
-    <div class="bg-white pl-4" id="day-1">
-        <!-- <div class="card bg-primary text-white">
-        <h5 id="5-day-date"></h5>
-        <img id="5-day-img">
-        <p id="5-day-temp">Temp: 98 F</p>
-        <p id="5-day-humidity">Humidity: 37%</p>
-        </div> -->
-    </div>
-    <div class="bg-white pl-4" id="day-2"></div>
-    <div class="bg-white pl-4" id="day-3"></div>
-    <div class="bg-white pl-4" id="day-4"></div>
-    <div class="bg-white pl-4" id="day-5"></div>
-</div>
-</main>
-</div>
-<div id="search-history"></div>
-<div id="weather-view"></div>
+    <div id="search-history"></div>
+    <div id="weather-view"></div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
     <script src="./assets/script.js"></script>
 </body>
 
