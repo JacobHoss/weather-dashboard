@@ -45,7 +45,7 @@ function searchClick() {
 }
 
 function findCity(city) {
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=70be54f6a0da84bd714c708afbf682a7&units=imperial"
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=70be54f6a0da84bd714c708afbf682a7&units=imperial"
     $.ajax({
       url: queryURL,
       method: "GET"
