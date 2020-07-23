@@ -21,6 +21,7 @@
                 <div class="form-group mb-2">
                     <input type="text" class="form-control" id="city">
                 </div>
+                <!-- this button activates the findCity function in the script file. It also runs a for loop that appends li's in the search history container -->
                 <button type="submit" id="find-city" class="btn btn-primary mb-2"><i class="fa fa-search"></i></button>
             </form>
             <ul class="list-group pt-2" id="search-history"></ul>
@@ -28,6 +29,7 @@
 
         <main class="col-sm-8">
             <div class="img-thumbnail">
+                <!-- this is where all the data for the current forecast is rendered -->
                 <ul style="list-style-type:none; line-height: 45px;">
                     <h2 id="city1" class="pt-3"></h2>
                     <img id="weather-icon" />
@@ -41,8 +43,8 @@
             <div class="row bg-white d-flex justify-content-between" id="5-day"></div>
         </main>
     </div>
+    <!-- this is where the search-history li's are appended by the script file -->
     <div id="search-history"></div>
-    <div id="weather-view"></div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

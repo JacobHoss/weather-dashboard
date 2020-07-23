@@ -21,6 +21,7 @@ $("#find-city").on("click", function (event) {
 
   $("#city").val(""); // after the form is submitted, the text are is emptied
 
+  // if the user hits the find-city button with no text in the input box, the function won't run and the user will be alerted
   if (city === "") {
     alert("Your input cannot be blank")
     return;
@@ -72,16 +73,16 @@ function findCity(city) {
     $("#current-temp").text(temp);
     $("#current-humidity").text(humid);
     $("#current-wind").text(wind);
-    var lat = response.city.coord.lat
-    var lon = response.city.coord.lon
+    var lat = response.city.coord.lat // latitude
+    var lon = response.city.coord.lon // longitude
 
     // For Loop to Generate the 5-Day Forecast
     for (var i = 0; i < response.list.length; i++) {
-      if (response.list[i].dt_txt.indexOf("12:00:00") !== -1) {
-        var dateNum = response.list[i].dt_txt; // 2020-07-21 --> 07/21/2020
-        var date = $("<h5>").text(dateNum.slice(6, 7) + "/" + dateNum.slice(8, 10) + "/" + dateNum.slice(0, 4));
+      if (response.list[i].dt_txt.indexOf("18:00:00") !== -1) {
+        var dateNum = response.list[i].dt_txt; 
+        var date = $("<h5>").text(dateNum.slice(6, 7) + "/" + dateNum.slice(8, 10) + "/" + dateNum.slice(0, 4)); // Format change: 2020-07-21 --> 07/21/2020
         var card = $("<div>")
-        var paragraph = $("<p>").text("Temp: " + response.list[i].main.temp + "F")
+        var paragraph = $("<p>").text("Temp: " + response.list[i].main.temp + " \xB0\F")
         var weatherIcon = $("<img>")
         card.append(date)
         card.append(weatherIcon);
@@ -111,6 +112,8 @@ function findCity(city) {
         $("#current-uv").addClass("btn btn-success")
       }
     });
+    // this function detects when the AJAX request returns an error
+    // when it does so, it will alert the user, remove the invalid city from the array, save local storage, and remove the li appended by the for loop.
   }).catch(function (error) {
     if (error) {
       alert("Sorry, not a valid city")
